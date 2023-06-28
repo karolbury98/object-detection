@@ -1,7 +1,7 @@
 import cv2 #pip install opencv-python
 thres = 0.45 # Threshold to detect object
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 cap.set(3,1280)
 cap.set(4,720)
 cap.set(10,70)
@@ -9,7 +9,7 @@ cap.set(10,70)
 classNames= []
 classFile = 'coco.names'
 with open(classFile,'rt') as f:
-    classNames = f.read().rstrip('n').split('n')
+    classNames=[line.rstrip() for line in f]
 
 configPath = 'ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt'
 weightsPath = 'frozen_inference_graph.pb'
