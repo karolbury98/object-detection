@@ -21,6 +21,7 @@ net.setInputMean((127.5, 127.5, 127.5))
 net.setInputSwapRB(True)
 
 while True:
+    
     success,img = cap.read()
     classIds, confs, bbox = net.detect(img,confThreshold=thres)
     print(classIds,bbox)
